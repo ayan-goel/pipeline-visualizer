@@ -103,50 +103,50 @@ export function ControlsPanel({
         />
 
         {stepMode && (
-          <div className="space-y-2 rounded-lg border border-slate-200 bg-slate-50 p-2.5 dark:border-slate-800 dark:bg-slate-950/50">
+          <div className="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-950/50">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-[10px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                <p className="text-[11px] uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Cycle
                 </p>
-                <p className="font-mono text-base font-semibold text-slate-800 dark:text-slate-100">
+                <p className="font-mono text-lg font-semibold text-slate-800 dark:text-slate-100">
                   {selectedCycle}
-                  <span className="text-xs font-normal text-slate-400"> / {totalCycles || 0}</span>
+                  <span className="text-sm font-normal text-slate-400"> / {totalCycles || 0}</span>
                 </p>
               </div>
               <div className="flex gap-1">
                 <button
                   onClick={onPrevCycle}
                   disabled={selectedCycle <= 1}
-                  className="rounded-md border border-slate-200 bg-white p-1 text-slate-600 transition hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="rounded-md border border-slate-200 bg-white p-1.5 text-slate-600 transition hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                   aria-label="Previous cycle"
                 >
-                  <ChevronLeft className="h-3.5 w-3.5" />
+                  <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
                   onClick={onTogglePlay}
-                  className="rounded-md bg-indigo-500 p-1 text-white transition hover:bg-indigo-600"
+                  className="rounded-md bg-indigo-500 p-1.5 text-white transition hover:bg-indigo-600"
                   aria-label={isPlaying ? "Pause" : "Play"}
                 >
                   {isPlaying ? (
-                    <Pause className="h-3.5 w-3.5" />
+                    <Pause className="h-4 w-4" />
                   ) : (
-                    <Play className="h-3.5 w-3.5" />
+                    <Play className="h-4 w-4" />
                   )}
                 </button>
                 <button
                   onClick={onNextCycle}
                   disabled={selectedCycle >= totalCycles}
-                  className="rounded-md border border-slate-200 bg-white p-1 text-slate-600 transition hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
+                  className="rounded-md border border-slate-200 bg-white p-1.5 text-slate-600 transition hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800"
                   aria-label="Next cycle"
                 >
-                  <ChevronRight className="h-3.5 w-3.5" />
+                  <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
             </div>
 
             <div>
-              <div className="mb-0.5 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
+              <div className="mb-1 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400">
                 <span>Speed</span>
                 <span className="font-mono">{animationSpeed}ms</span>
               </div>
@@ -181,11 +181,11 @@ function Toggle({
   return (
     <label className="flex cursor-pointer items-start justify-between gap-3">
       <div className="min-w-0 flex-1">
-        <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300">
+        <p className="text-xs font-medium text-slate-700 dark:text-slate-300">
           {label}
         </p>
         {hint && (
-          <p className="mt-0.5 text-[10px] leading-snug text-slate-500 dark:text-slate-400">
+          <p className="mt-0.5 text-[11px] leading-snug text-slate-500 dark:text-slate-400">
             {hint}
           </p>
         )}

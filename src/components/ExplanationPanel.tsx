@@ -36,29 +36,29 @@ export function ExplanationPanel({ result, selectedCycle }: Props) {
 
   return (
     <section className="flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-900">
-      <header className="flex flex-shrink-0 items-center justify-between border-b border-slate-100 px-3 py-2 dark:border-slate-800">
+      <header className="flex flex-shrink-0 items-center justify-between border-b border-slate-100 px-4 py-2.5 dark:border-slate-800">
         <div className="flex items-center gap-2">
-          <BookOpen className="h-3.5 w-3.5 text-indigo-500" />
-          <h2 className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+          <BookOpen className="h-4 w-4 text-indigo-500" />
+          <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-200">
             Cycle {selectedCycle}
           </h2>
         </div>
-        <p className="hidden text-[10px] text-slate-500 dark:text-slate-400 xl:block">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           Click a column to switch
         </p>
       </header>
 
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3">
+      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4">
         {cellsAtCycle.length === 0 ? (
-          <p className="text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             No instructions are active in this cycle.
           </p>
         ) : (
           <div>
-            <h3 className="mb-1.5 text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+            <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
               Active instructions
             </h3>
-            <ul className="space-y-1">
+            <ul className="space-y-1.5">
               {cellsAtCycle.map((cell) => {
                 const inst = result.instructions.find(
                   (i) => i.id === cell.instructionId
@@ -67,17 +67,17 @@ export function ExplanationPanel({ result, selectedCycle }: Props) {
                 return (
                   <li
                     key={cell.instructionId}
-                    className="flex items-start gap-2 rounded-md bg-slate-50 px-2 py-1.5 text-xs dark:bg-slate-800/50"
+                    className="flex items-start gap-2 rounded-md bg-slate-50 px-3 py-2 text-xs dark:bg-slate-800/50"
                   >
-                    <span className="mt-0.5 inline-flex h-4 min-w-[2.25rem] items-center justify-center rounded border border-slate-200 bg-white px-1 font-mono text-[9px] font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
+                    <span className="mt-0.5 inline-flex h-5 min-w-[2.5rem] items-center justify-center rounded border border-slate-200 bg-white px-1.5 font-mono text-[10px] font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
                       {cell.stage}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <code className="block truncate font-mono text-[11px] text-slate-800 dark:text-slate-200">
+                      <code className="block font-mono text-[12px] text-slate-800 dark:text-slate-200">
                         {inst.raw}
                       </code>
                       {cell.explanation && (
-                        <p className="mt-0.5 text-[10px] leading-snug text-slate-500 dark:text-slate-400">
+                        <p className="mt-0.5 text-[11px] leading-snug text-slate-500 dark:text-slate-400">
                           {cell.explanation}
                         </p>
                       )}
@@ -91,15 +91,15 @@ export function ExplanationPanel({ result, selectedCycle }: Props) {
 
         {hazardsAtCycle.length > 0 && (
           <div>
-            <h3 className="mb-1.5 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
-              <AlertTriangle className="h-3 w-3" />
+            <h3 className="mb-2 flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
+              <AlertTriangle className="h-3.5 w-3.5" />
               Hazards this cycle
             </h3>
-            <ul className="space-y-1">
+            <ul className="space-y-1.5">
               {hazardsAtCycle.map((h, i) => (
                 <li
                   key={i}
-                  className="rounded-md border-l-2 border-amber-400 bg-amber-50 px-2.5 py-1.5 text-[11px] leading-snug text-amber-900 dark:border-amber-500 dark:bg-amber-950/30 dark:text-amber-200"
+                  className="rounded-md border-l-2 border-amber-400 bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:border-amber-500 dark:bg-amber-950/30 dark:text-amber-200"
                 >
                   <span className="font-semibold">{h.type}:</span> {h.message}
                 </li>
@@ -110,15 +110,15 @@ export function ExplanationPanel({ result, selectedCycle }: Props) {
 
         {forwardingsAtCycle.length > 0 && (
           <div>
-            <h3 className="mb-1.5 flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
-              <Zap className="h-3 w-3" />
+            <h3 className="mb-2 flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400">
+              <Zap className="h-3.5 w-3.5" />
               Forwarding active
             </h3>
-            <ul className="space-y-1">
+            <ul className="space-y-1.5">
               {forwardingsAtCycle.map((f, i) => (
                 <li
                   key={i}
-                  className="rounded-md border-l-2 border-amber-400 bg-amber-50 px-2.5 py-1.5 text-[11px] leading-snug text-amber-900 dark:border-amber-500 dark:bg-amber-950/30 dark:text-amber-200"
+                  className="rounded-md border-l-2 border-amber-400 bg-amber-50 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:border-amber-500 dark:bg-amber-950/30 dark:text-amber-200"
                 >
                   {f.message}
                 </li>

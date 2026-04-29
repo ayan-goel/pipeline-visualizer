@@ -40,28 +40,28 @@ const items: { label: string; cls: string; description: string }[] = [
 
 export function Legend() {
   return (
-    <section className="flex-shrink-0 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-soft dark:border-slate-800 dark:bg-slate-900">
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-        <span className="text-[10px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+    <section className="flex-shrink-0 rounded-xl border border-slate-200 bg-white px-4 py-2.5 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
           Legend
         </span>
         {items.map((item) => (
           <div key={item.label} className="flex items-center gap-1.5">
             <span
-              className={`inline-flex h-5 min-w-[2rem] items-center justify-center rounded border px-1 text-[9px] font-semibold ${item.cls}`}
+              className={`inline-flex h-6 min-w-[2.25rem] items-center justify-center rounded border px-1.5 text-[10px] font-semibold ${item.cls}`}
             >
               {item.label}
             </span>
-            <span className="text-[10px] text-slate-600 dark:text-slate-400">
+            <span className="text-[11px] text-slate-600 dark:text-slate-400">
               {item.description}
             </span>
           </div>
         ))}
         <div className="flex items-center gap-1.5">
-          <span className="relative inline-flex h-5 w-8 items-center justify-center rounded border border-slate-200 bg-white text-[9px] font-semibold ring-2 ring-amber-400 ring-offset-1 ring-offset-white dark:border-slate-700 dark:bg-slate-900 dark:ring-offset-slate-900">
-            <Zap className="h-2.5 w-2.5 text-amber-600 dark:text-amber-400" />
+          <span className="relative inline-flex h-6 w-9 items-center justify-center rounded border border-slate-200 bg-white text-[10px] font-semibold ring-2 ring-amber-400 ring-offset-1 ring-offset-white dark:border-slate-700 dark:bg-slate-900 dark:ring-offset-slate-900">
+            <Zap className="h-3 w-3 text-amber-600 dark:text-amber-400" />
           </span>
-          <span className="text-[10px] text-slate-600 dark:text-slate-400">
+          <span className="text-[11px] text-slate-600 dark:text-slate-400">
             Forwarding
           </span>
         </div>

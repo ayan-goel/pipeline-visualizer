@@ -57,11 +57,11 @@ export function PipelineDiagram({
 
   return (
     <div className="flex h-full flex-col rounded-xl border border-slate-200 bg-white shadow-soft dark:border-slate-800 dark:bg-slate-900">
-      <header className="flex flex-shrink-0 items-center justify-between border-b border-slate-100 px-3 py-2 dark:border-slate-800">
-        <h2 className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+      <header className="flex flex-shrink-0 items-center justify-between border-b border-slate-100 px-4 py-2.5 dark:border-slate-800">
+        <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-200">
           Pipeline diagram
         </h2>
-        <p className="text-[11px] text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           {instructions.length} instruction{instructions.length === 1 ? "" : "s"} ·{" "}
           {totalCycles} cycle{totalCycles === 1 ? "" : "s"}
         </p>
