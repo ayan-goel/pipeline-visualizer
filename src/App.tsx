@@ -105,9 +105,9 @@ export default function App() {
     <div className="flex h-screen flex-col bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       <Header darkMode={darkMode} onToggleDarkMode={() => setDarkMode((d) => !d)} />
 
-      <main className="grid min-h-0 flex-1 gap-4 overflow-hidden p-4 lg:grid-cols-[320px_minmax(0,1fr)_360px]">
-        {/* Left column */}
-        <aside className="flex min-h-0 flex-col gap-4 overflow-hidden">
+      <main className="grid min-h-0 flex-1 gap-4 overflow-hidden p-4 lg:grid-cols-[300px_minmax(0,1fr)_340px]">
+        {/* Left column: input + controls, stacked, can scroll if combined height overflows */}
+        <aside className="flex min-h-0 flex-col gap-4 overflow-y-auto">
           <InstructionInput
             source={source}
             onChange={setSource}
@@ -115,40 +115,36 @@ export default function App() {
             onLoadPreset={handleLoadPreset}
             errorMessage={error}
           />
-          <div className="min-h-0 flex-1 overflow-hidden">
-            <ControlsPanel
-              config={config}
-              onConfigChange={setConfig}
-              showExplanations={showExplanations}
-              onToggleExplanations={setShowExplanations}
-              stepMode={stepMode}
-              onToggleStepMode={setStepMode}
-              selectedCycle={selectedCycle}
-              totalCycles={totalCycles}
-              onPrevCycle={handlePrev}
-              onNextCycle={handleNext}
-              isPlaying={isPlaying}
-              onTogglePlay={() => setIsPlaying((p) => !p)}
-              animationSpeed={animationSpeed}
-              onSpeedChange={setAnimationSpeed}
-            />
-          </div>
+          <ControlsPanel
+            config={config}
+            onConfigChange={setConfig}
+            showExplanations={showExplanations}
+            onToggleExplanations={setShowExplanations}
+            stepMode={stepMode}
+            onToggleStepMode={setStepMode}
+            selectedCycle={selectedCycle}
+            totalCycles={totalCycles}
+            onPrevCycle={handlePrev}
+            onNextCycle={handleNext}
+            isPlaying={isPlaying}
+            onTogglePlay={() => setIsPlaying((p) => !p)}
+            animationSpeed={animationSpeed}
+            onSpeedChange={setAnimationSpeed}
+          />
         </aside>
 
-        {/* Middle column */}
+        {/* Middle column: diagram (flex-1, internal scroll for many rows) + legend at bottom */}
         <section className="flex min-h-0 flex-col gap-4 overflow-hidden">
-          <div className="min-h-0 flex-1 overflow-hidden">
-            <PipelineDiagram
-              result={result}
-              selectedCycle={selectedCycle}
-              onSelectCycle={setSelectedCycle}
-              visibleCycle={visibleCycle}
-            />
-          </div>
+          <PipelineDiagram
+            result={result}
+            selectedCycle={selectedCycle}
+            onSelectCycle={setSelectedCycle}
+            visibleCycle={visibleCycle}
+          />
           <Legend />
         </section>
 
-        {/* Right column */}
+        {/* Right column: explanation only */}
         <aside className="flex min-h-0 flex-col overflow-hidden">
           {showExplanations ? (
             <ExplanationPanel result={result} selectedCycle={selectedCycle} />
