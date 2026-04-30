@@ -10,9 +10,6 @@ export function Header({ darkMode, onToggleDarkMode }: Props) {
     <header className="flex-shrink-0 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
       <div className="flex items-center justify-between px-5 py-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white shadow-md">
-            <Cpu className="h-4 w-4" />
-          </div>
           <div>
             <h1 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-50">
               CS 2200 Pipeline Visualizer
